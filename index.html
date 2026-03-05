@@ -26,7 +26,9 @@
     @theme {
       --color-primary-text: #18181B;
       --color-secondary-text: #62748E;
-
+      --color-blue-text: #00BCFF;
+      
+      --color-secondary-bg: #F8F8F8;
       --color-navbar-bg: rgba(186, 222, 255, 0.26);
     }
     </style>
@@ -34,7 +36,8 @@
 </head>
 
 <body>
-  <header class="bg-navbar-bg border-b border-b-[#C6BDBD]">
+  <header class="border-b bg-white z-10 border-b-[#C6BDBD] sticky top-0">
+    <div class="bg-navbar-bg ">
     <nav class="relative max-w-[1500px] mx-auto flex justify-between items-center py-5 px-10">
       <div class="flex justify-center items-center gap-2">
         <h1 class="font-semibold text-2xl text-primary-text">English</h1>
@@ -43,29 +46,31 @@
       </div>
 
       <ul class="hidden md:flex justify-center items-center gap-3">
-        <li><button class="btn btn-outline btn-primary"><i class="fa-solid fa-circle-question"></i> FAQ</button></li>
-        <li><button class="btn btn-outline btn-primary"><i class="fa-solid fa-book-open"></i> Learn</button></li>
-        <li><button class="btn btn-outline btn-primary"><i class="fa-solid fa-arrow-right-from-bracket"></i>
-            LogOut</button></li>
+        <li><a href="#faq" class="btn btn-outline btn-primary"><i class="fa-solid fa-circle-question"></i> FAQ</a></li>
+        <li><a href="#learn" class="btn btn-outline btn-primary"><i class="fa-solid fa-book-open"></i> Learn</a></li>
+        <li><a href="#" class="btn btn-outline btn-primary"><i class="fa-solid fa-arrow-right-from-bracket"></i>
+            LogOut</a></li>
       </ul>
 
       <ul id="dropDown-menu"
         class="absolute top-full w-1/2 border border-t-transparent border-r-transparent text-center rounded-bl-xl border-[#C6BDBD] bg-white right-0 px-10 pb-10 pt-5 space-y-5 hidden">
-        <li><button class="btn btn-outline btn-primary"><i class="fa-solid fa-circle-question"></i> FAQ</button></li>
-        <li><button class="btn btn-outline btn-primary"><i class="fa-solid fa-book-open"></i> Learn</button></li>
-        <li><button class="btn btn-outline btn-primary"><i class="fa-solid fa-arrow-right-from-bracket"></i>
-            LogOut</button></li>
+        <li><a href="#faq" class="btn btn-outline btn-primary"><i class="fa-solid fa-circle-question"></i> FAQ</a></li>
+        <li><a href="#learn" class="btn btn-outline btn-primary"><i class="fa-solid fa-book-open"></i> Learn</a></li>
+        <li><a href="#" class="btn btn-outline btn-primary"><i class="fa-solid fa-arrow-right-from-bracket"></i>
+            LogOut</a></li>
       </ul>
 
       <button onclick="dorpDownMenu()" class="cursor-pointer text-2xl md:hidden"><i
           class="fa-solid fa-bars"></i></button>
     </nav>
+    </div>
   </header>
-  <main class="max-w-[1500px] mx-auto">
+  <main class="max-w-[1500px] mx-auto p-5">
+    <!-- Hero Section  -->
     <section
-      class="flex flex-col-reverse md:flex-row text-center md:text-start justify-between items-center p-10 text-primary-text">
+      class="flex flex-col-reverse md:flex-row text-center md:text-start justify-between items-center p-5 text-primary-text">
       <div class="flex-1 space-y-6">
-        <h1 class="font-bold text-4xl"><span class="text-[#00BCFF]">English</span> is Easy!!</h1>
+        <h1 class="font-bold text-4xl"><span class="text-blue-text">English</span> is Easy!!</h1>
         <p class="font-medium text-2xl font-shiliguri">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা
           আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive
           Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ</p>
@@ -84,6 +89,59 @@
       </div>
       <div class="flex-1">
         <img src="assets/hero-student.png" alt="hero banner">
+      </div>
+    </section>
+
+    <!-- Learn Sectoin  -->
+    <section id="learn" class="space-y-10 mt-25 md:mt-30">
+      <h2 class="font-bold text-4xl text-center"><span class="text-blue-text">Let's</span> Learn Vocabularies</h2>
+
+      <div id="lessons">
+
+      </div>
+
+      <!-- default Lesson -->
+      <div class="py-[64px] text-center rounded-[24px] bg-secondary-bg space-y-3">
+        <p class="text-secondary-text font-shiliguri text-xs">আপনি এখনো কোন Lesson Select করেন নি</p>
+        <h2 class="font-semibold font-shiliguri text-3xl ">একটি Lesson Select করুন।</h2>
+      </div>
+
+    </section>
+
+    <!-- FAQ section -->
+    <section id="faq" class="space-y-12 mt-25 md:mt-30">
+      <h2 class="font-bold text-4xl text-center"><span class="text-blue-text">Frequently</span> Asked Questions</h2>
+
+      <div class="space-y-4">
+
+        <div class="bg-secondary-bg rounded-[16px] p-6 space-y-4">
+          <div class="flex justify-between items-center font-bold">
+            <p>1. How can I start learning English on this website?</p>
+            <p class="cursor-pointer">-</p>
+          </div>
+          <p class="text-secondary-text text-xs ">You can start by exploring our beginner lessons, interactive exercises, and quizzes. We also offer structured courses to guide you step by step.</p>
+        </div>
+
+        <div class="flex justify-between items-center font-bold bg-secondary-bg rounded-[16px] p-6">
+          <p>2. Is this website free to use?</p>
+          <p class="cursor-pointer">+</p>
+        </div>
+
+        <div class="flex justify-between items-center font-bold bg-secondary-bg rounded-[16px] p-6">
+          <p>3.  Do I need to create an account?</p>
+          <p class="cursor-pointer">+</p>
+        </div>
+
+        <div class="flex justify-between items-center font-bold bg-secondary-bg rounded-[16px] p-6">
+          <p>4. How can I build my English vocabulary?</p>
+          <p class="cursor-pointer">+</p>
+        </div>
+
+        <div class="flex justify-between items-center font-bold bg-secondary-bg rounded-[16px] p-6">
+          <p>5. Do you offer certificates for completed courses?</p>
+          <p class="cursor-pointer">+</p>
+        </div>
+
       </div>
     </section>
   </main>
