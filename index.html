@@ -28,6 +28,7 @@
       --color-secondary-text: #62748E;
       --color-blue-text: #00BCFF;
       
+      --color-words-bg: #ffffff;
       --color-secondary-bg: #F8F8F8;
       --color-navbar-bg: rgba(186, 222, 255, 0.26);
     }
@@ -98,12 +99,19 @@
     <section id="learn" class="space-y-10 mt-25 md:mt-30">
       <h2 class="font-bold text-4xl text-center"><span class="text-blue-text">Let's</span> Learn Vocabularies</h2>
 
-      <div id="lessons">
+      <!-- Lesson buttons will load here  -->
+      <div id="lessons" class="flex flex-wrap justify-center items-center gap-3"></div>
+
+      <!-- All lessons will load here -->
+      <div id="lesson-Words" class="hidden grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 bg-secondary-bg rounded-[24px] p-8 text-primary-text">
+
+      
 
       </div>
 
+
       <!-- default Lesson -->
-      <div class="py-[64px] text-center rounded-[24px] bg-secondary-bg space-y-3">
+      <div id="default-section" class="py-[64px] px-5 flex flex-col justify-center items-center text-center rounded-[24px] bg-secondary-bg space-y-3">
         <p class="text-secondary-text font-shiliguri text-xs">আপনি এখনো কোন Lesson Select করেন নি</p>
         <h2 class="font-semibold font-shiliguri text-3xl ">একটি Lesson Select করুন।</h2>
       </div>
