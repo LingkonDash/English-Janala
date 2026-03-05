@@ -19,34 +19,11 @@ async function loadLessons() {
 loadLessons();
 
 
-async function loadWords(level) {
-  
 
-  const url = `https://openapi.programming-hero.com/api/level/${level}`
-  const res = await fetch(url)
-  const json = await res.json();
-
-
-  createWords(json.data);
-
-}
-
-// active routing in buttons
-lessons.addEventListener('click', (e) => {
-  const buttons = e.target.closest('#lessons').children
-  
-  for(let button of buttons) {
-    
-    button.classList.remove('btn-Style');
-    
-  } 
-  e.target.closest('.butt').classList.add('btn-Style')
-  
-})
 
 // Lesson Button Creator 
 function createLessonBTN(arr) {
-
+  
   arr.forEach(obj => {
     const btn = document.createElement('button');
     btn.className = 'btn btn-outline btn-primary butt'
@@ -56,9 +33,20 @@ function createLessonBTN(arr) {
   });
 }
 
+// Lessons Loader 
+async function loadWords(level) {
+  
+  const url = `https://openapi.programming-hero.com/api/level/${level}`
+  const res = await fetch(url)
+  const json = await res.json();
+  
+  
+  createWords(json.data);
+  
+}
 // Word Div creator
 function createWords(arr) {
-
+  
   lessonWords.classList.add('grid');
   lessonWords.classList.remove('hidden');
   lessonWords.innerHTML = ''
@@ -75,13 +63,13 @@ function createWords(arr) {
   }
 
   arr.forEach(obj => {
-
+    
     div = document.createElement('div');
     div.className = 'bg-words-bg rounded-[12px] text-center space-y-4 p-10'
     div.innerHTML = `
       <h2 class="font-semibold text-2xl">${obj.word}</h2>
       <p class="font-medium text-xl">Meaning /Pronounciation</p>
-      <h2 class="font-semibold text-2xl font-font-shiliguri">"${obj.meaning} / ${obj.pronunciation}"</h2>
+      <h2 class="font-semibold text-2xl font-font-shiliguri">"${obj.meaning ? obj.meaning : 'অর্থ পাওয়া '} / ${obj.pronunciation}"</h2>
       <div class="flex justify-between items-center mt-15">
         <button class="cursor-pointer bg-[#1A91FF10] p-4 rounded-[8px]"><i class="fa-solid fa-circle-info"></i></button>
         <button class="cursor-pointer bg-[#1A91FF10] p-4 rounded-[8px]"><i class="fa-solid fa-volume-high"></i></button>
@@ -90,9 +78,22 @@ function createWords(arr) {
     lessonWords.appendChild(div)
 
   })
-
+  
   defaultSection.classList.add('hidden')
 }
+
+// active routing in lessons
+lessons.addEventListener('click', (e) => {
+  const buttons = e.target.closest('#lessons').children
+  
+  for(let button of buttons) {
+    
+    button.classList.remove('btn-Style');
+    
+  } 
+  e.target.closest('.butt').classList.add('btn-Style')
+  
+})
 
 // Drop Down meny in mobile view 
 function dorpDownMenu() {
