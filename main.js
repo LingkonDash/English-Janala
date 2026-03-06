@@ -96,8 +96,17 @@ lessons.addEventListener('click', (e) => {
 })
 
 // Drop Down meny in mobile view 
-function dorpDownMenu() {
-  const items = document.getElementById('dropDown-menu');
+const menu = document.getElementById("dropdownMenu");
 
-  items.classList.toggle('hidden')
+function toggleMenu() {
+  menu.classList.toggle("hidden");
 }
+
+document.addEventListener("click", function (event) {
+  const isClickInside = menu.contains(event.target);
+  const isButton = event.target.closest("button");
+
+  if (!isClickInside && !isButton) {
+    menu.classList.add("hidden");
+  }
+});
